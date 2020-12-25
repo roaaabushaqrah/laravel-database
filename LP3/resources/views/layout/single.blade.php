@@ -1,0 +1,45 @@
+@extends('layout.master')
+
+@section('title')
+single
+@endsection
+@section('style')
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('/css/card.css') }}">
+@endsection
+
+@section('content')
+
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"><a href="#custom-modal" class="btn btn-custom waves-effect waves-light mb-4" data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus"></i> Add Member</a></div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+        <div class="row">
+            @foreach($showall as $student)
+            <div class="col-lg-4">
+                <div class="text-center card-box">
+                    <div class="member-card pt-2 pb-2">
+                        <div class="thumb-lg member-thumb mx-auto"><img src='{{asset("images/$student->image")}}'
+ class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <div class="">
+                            <h4>{{$student->name}}</h4>
+                            <p class="text-muted"> <span>{{$student->mobile}}| </span><span><a href="#" class="text-pink">{{$student->email}}</a></span></p>
+                        </div>
+                       <a href="gallery/{{$student->id}}"> <button type="submit"  class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View  </button></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+   
+    <!-- container -->
+
+ 
+@endsection
